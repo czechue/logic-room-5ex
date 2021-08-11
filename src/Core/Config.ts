@@ -5,6 +5,6 @@ export class Config {
   apiUrl = "";
 
   constructor() {
-    this.apiUrl = "http://localhost:4040";
+    this.apiUrl = "https://api.logicroom.co";
   }
 }

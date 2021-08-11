@@ -4,6 +4,7 @@ import { withInjection } from './Core/WithPresenter'
 import { observer } from 'mobx-react'
 import { CurrentPagePresenter } from './CurrentPagePresenter'
 import { BooksComponent } from './Books/BooksComponent'
+import { LoginRegisterComponent } from './Authentication/LoginRegisterComponent'
 
 export const CurrentPageComp = observer((props: any) => {
   React.useEffect(() => {
@@ -23,7 +24,9 @@ export const CurrentPageComp = observer((props: any) => {
   return (
     <div>
       {props.presenter.currentRouteId === 'loginLink' ? (
-        <div>Create the login and register page</div>
+        <div>
+          <LoginRegisterComponent />
+        </div>
       ) : (
         <div>Create the navigation menu and content pages</div>
       )}

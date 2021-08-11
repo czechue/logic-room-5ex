@@ -37,6 +37,19 @@ export class LoginRegisterPresenter {
   };
 
   register = async () => {
-    console.log(this);
+    this.showValidationMessage = true;
+
+    if (!this.email.includes('@') || this.password.length < 3) {
+      this.validationMessage = 'Wrong email or too short password'
+    } else {
+      try {
+        const response = await this.authenticationRepository.register(this.email, this.password)
+        this.validationMessage = response.result.message
+      } catch (e) {
+        this.validationMessage = 'Auth error'
+        console.log(e)
+      }
+    }
+    
   };
 }
